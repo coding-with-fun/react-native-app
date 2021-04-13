@@ -4,6 +4,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import "react-native-gesture-handler";
 import SignInScreen from "./screens/SignInScreen";
+import SignUpScreen from "./screens/SignUpScreen";
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
             <StatusBar style="light" />
             <Stack.Navigator screenOptions={globalScreenOptions}>
                 <Stack.Screen name="Sign In" component={SignInScreen} />
+                <Stack.Screen name="Sign Up" component={SignUpScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 import { KeyboardAvoidingView, StyleSheet, View } from "react-native";
-import { Button, Image, Input } from "react-native-elements";
+import { Button, Text, Input } from "react-native-elements";
 
-const SignInScreen = ({ navigation }) => {
+const SignUpScreen = ({ navigation }) => {
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSignIn = () => {};
+    const handleSignUp = () => {};
 
     return (
         // TODO: Check for behaviour and if anything breaks, add <behaviour="padding"> in KeyboardAvoidingView
         <KeyboardAvoidingView style={styles.container}>
-            <Image
-                source={{
-                    uri:
-                        "https://blog.mozilla.org/internetcitizen/files/2018/08/signal-logo.png",
-                }}
-                style={styles.image}
-            />
+            <Text h3 style={styles.title}>
+                Create New Account
+            </Text>
 
             <View style={styles.inputContainer}>
+                <Input
+                    placeholder="Full Name"
+                    type="text"
+                    value={name}
+                    onChangeText={(text) => setName(text)}
+                />
                 <Input
                     placeholder="Email"
                     type="email"
@@ -38,20 +41,20 @@ const SignInScreen = ({ navigation }) => {
             <Button
                 raised
                 containerStyle={styles.button}
-                title="Sign In"
-                onPress={handleSignIn}
+                title="Sign Up"
+                onPress={handleSignUp}
             />
             <Button
                 containerStyle={styles.button}
-                title="Sign Up"
+                title="Sign In"
                 type="outline"
-                onPress={() => navigation.navigate("Sign Up")}
+                onPress={() => navigation.navigate("Sign In")}
             />
         </KeyboardAvoidingView>
     );
 };
 
-export default SignInScreen;
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -62,9 +65,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#ffffff",
         paddingBottom: 40,
     },
-    image: {
-        width: 170,
-        height: 170,
+    title: {
+        marginBottom: 50,
     },
     inputContainer: {
         width: 300,
